@@ -100,3 +100,10 @@ font-size: 21px;
 .filter{
   display: flex;
 }
+
+
+.user-card{
+  padding: 10px;
+  margin: 8px;
+  border: 1px solid black;
+}
