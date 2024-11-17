@@ -1,6 +1,7 @@
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 
 const Body = () => {
@@ -17,23 +18,19 @@ useEffect(()=>{
 
 const fetchData = async () =>{
     const data = await fetch(
-"https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.07480&lng=72.88560&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+"https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.99740&lng=79.00110&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     )
 
     const json = await data.json()
 
-    console.log(json)
-    console.log("data-->",json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants)
+    // console.log(json)
+    // console.log("data-->",json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants)
     setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     setFilteredRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
 }
 
-// consitional rendering -> resndering on basis of condition i called condiotional remndering
-// if (restaurantRating.length === 0){
-//   return <Shimmer />
-// }
 
-    return listOfRestaurants.length === 0 ? <Shimmer /> : (
+    return listOfRestaurants?.length === 0 ? <Shimmer /> : (
       <div className="body">
         <div className="filter">
         <div className="search">
@@ -71,16 +68,36 @@ const fetchData = async () =>{
         </div>
        
         <div className="res-container">
-          {
-            filteredRestaurants.map((restaurant) => (<RestaurantCard key={restaurant.info.id} resData={restaurant} />
-            )
-            )
-          }
+          {filteredRestaurants.map((restaurant) => 
+          (
+            <Link
+            
+                key={restaurant?.info.id}
+      to={"/restaurants/" + restaurant?.info.id}
+            >
+                        <RestaurantCard resData={restaurant} />
+
+            </Link>
+
+            ))}
         </div>
       </div>
     )
   }
 
+
+  // {filteredRestaurant.map((restaurant) => (
+  //   <Link
+  //     key={restaurant?.info.id}
+  //     to={"/restaurants/" + restaurant?.info.id}
+  //   >
+  //     {restaurant?.info.promoted ? (
+  //       <RestaurantCardPromoted resData={restaurant?.info} />
+  //     ) : (
+  //       <RestaurantCard resData={restaurant?.info} />
+  //     )}
+  //   </Link>
+  // ))}
 
 
   export default Body;
