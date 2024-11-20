@@ -10,11 +10,14 @@ const About = () => {
         name={"Poonam channe (function)"}
         location={"Mubai funtion"}
         twitter={"@poonamc 10"}
+        // count={"0"}
       />
       <UserClass
         name={"Poonam channe (class based)"}
         location={"Mumbai class"}
         twitter={"@poonamc 06"}
+        // count={"0"}
+        // count2={"2"}
       />
     </div>
   );

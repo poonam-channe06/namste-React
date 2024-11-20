@@ -85,3 +85,11 @@ Two types of Export/Import
 
   export const component-name;
   import { component-name }  from "path";
+
+
+  Super(props)
+
+    /** A super constructor is a special constructor in the class hierarchy of object-oriented programming languages.
+   *  It refers to the constructor of the parent class that is being extended in the current class.
+   *  The purpose of using the super constructor with a props argument is to inherit the properties of the parent class
+   * and also pass in additional properties as arguments to the child class. */
