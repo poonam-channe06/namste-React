@@ -25,6 +25,7 @@ const onlineStatus = useOnlineStatus();
             <li><Link to = "/">Home</Link></li>
             <li><Link to = "/about" >About us</Link></li>
             <li><Link to = "/contact">Contact Us</Link></li>
+            <li><Link to = "/grocery">Grocery</Link></li>
             <li>cart</li>
             <button className="login-btn" onClick={()=>{
               btnName === "Login" ? setBtnName("Logout") : setBtnName("Login")
