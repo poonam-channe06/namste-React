@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 
 const Body = () => {
@@ -24,9 +25,20 @@ const fetchData = async () =>{
     const json = await data.json()
 
     // console.log(json)
-    // console.log("data-->",json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants)
-    setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-    setFilteredRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    console.log("data-->",json.data.cards)
+    setListOfRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    setFilteredRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+}
+
+
+const onlineStatus = useOnlineStatus();
+
+if(onlineStatus === false){
+  return (
+    <div>
+      <h2>Looks like you're offline .. Please check your internet connection!</h2>
+    </div>
+  )
 }
 
 
@@ -47,9 +59,10 @@ const fetchData = async () =>{
           onClick={()=>{
             // console.log(searchText)
             const fiilteredRestuarants = listOfRestaurants.filter((res)=>
-              // console.log("resdata-->", res.info.name)
               res.info.name.toLowerCase().includes(searchText.toLocaleLowerCase())
+              
             )
+            
             setFilteredRestaurants(fiilteredRestuarants)
           }}
           >Search</button>
@@ -67,7 +80,7 @@ const fetchData = async () =>{
 
         </div>
        
-        <div className="res-container">
+        <div className= "res-container" >
           {filteredRestaurants.map((restaurant) => 
           (
             <Link
@@ -84,20 +97,5 @@ const fetchData = async () =>{
       </div>
     )
   }
-
-
-  // {filteredRestaurant.map((restaurant) => (
-  //   <Link
-  //     key={restaurant?.info.id}
-  //     to={"/restaurants/" + restaurant?.info.id}
-  //   >
-  //     {restaurant?.info.promoted ? (
-  //       <RestaurantCardPromoted resData={restaurant?.info} />
-  //     ) : (
-  //       <RestaurantCard resData={restaurant?.info} />
-  //     )}
-  //   </Link>
-  // ))}
-
 
   export default Body;
