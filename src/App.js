@@ -1,5 +1,5 @@
 import './App.css';
-import React, {lazy, Suspense} from 'react';
+import React, {lazy, Suspense, useEffect, useState} from 'react';
 import ReactDOM from 'react-dom/client';
 import Header from './components/Header';
 import Body from './components/Body';
@@ -9,6 +9,7 @@ import Contact from './components/Contact';
 import Error from './components/Error';
 import RestaurantMenu from './components/RestaurantMenu';
 // import Grocery from './components/Grocery';
+import userContext from './utils/userContext';
 
 
 
@@ -17,13 +18,31 @@ import RestaurantMenu from './components/RestaurantMenu';
 const Grocery = lazy(() => import("./components/Grocery"))
 
 
+// if we want to modify our context 
 
 const AppLayout = () => {
+
+  const [userName, setUserName] = useState();
+
+
+// authentication 
+useEffect (()=>{
+  //make an API call and senf the username and password 
+  const data ={
+    name : "Poonam Channe"
+  }
+  setUserName(data.name)
+})
+
+// overriding the default value 
   return (
-    <div className="app">
+    <userContext.Provider value = {{loggednUser: userName}}>
+<div className="app">
       <Header />
       <Outlet />
     </div>
+    </userContext.Provider>
+    
   );
 }
 
