@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard  ,{ withPromotedLabel }from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -10,6 +10,8 @@ const Body = () => {
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
 
   const [searchText, setsearchText] = useState("");
+
+  const RestaurantCardPromoted = withPromotedLabel(RestaurantCard)
 
   useEffect(() => {
     fetchData();
@@ -23,12 +25,12 @@ const Body = () => {
     const json = await data.json();
 
     // console.log(json)
-    // console.log("data-->",json.data.cards)
+    console.log("data-->",json?.data)
     setListOfRestaurants(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFilteredRestaurants(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
 
@@ -98,6 +100,18 @@ const Body = () => {
             key={restaurant?.info.id}
             to={"/restaurants/" + restaurant?.info.id}
           >
+
+
+
+{/**so if there is "promoted lable in the wiggys website wel show this like 2 component one with label
+ * and other without lable 
+ * for noe there is no key "promotedlable "in the retaurant data so we can not use it here as 
+ * use in the video , BUT ill write the logic 
+ * " */}
+
+{/* {restaurant.data.promotedLable ? (<RestaurantCardPromoted resData={restaurant} />) : (<RestaurantCard resData={restaurant} />) } */}
+
+
             <RestaurantCard resData={restaurant} />
           </Link>
         ))}
