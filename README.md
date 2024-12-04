@@ -83,11 +83,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### Named Export/Import
 
- ## export const component-name;
- ## import { component-name }  from "path";
+ # export const component-name;
+ # import { component-name }  from "path";
 
 
-  ## Super(props)
+# Super(props)
 
     /** A super constructor is a special constructor in the class hierarchy of object-oriented programming languages.
    *  It refers to the constructor of the parent class that is being extended in the current class.
