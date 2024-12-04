@@ -39,7 +39,7 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+c Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
@@ -72,22 +72,22 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 
-Two types of Export/Import 
+### Two types of Export/Import 
 
-- Default Export/Import
+### Default Export/Import
 
   export default component-name;
   import component-name from "path";
 
 
 
-- Named Export/Import
+### Named Export/Import
 
-  export const component-name;
-  import { component-name }  from "path";
+ ## export const component-name;
+ ## import { component-name }  from "path";
 
 
-  Super(props)
+  ## Super(props)
 
     /** A super constructor is a special constructor in the class hierarchy of object-oriented programming languages.
    *  It refers to the constructor of the parent class that is being extended in the current class.
@@ -95,7 +95,7 @@ Two types of Export/Import
    * and also pass in additional properties as arguments to the child class. */
 
 
-- Redux Toolkit
+### Redux Toolkit
 
   - install npm i @reduxjs/toolkit and react-redux 
   - build our own store
@@ -104,3 +104,10 @@ Two types of Export/Import
   - dispatch an action
   - selector
 
+
+
+### Types of Testing [ developer]
+
+  - Unit Testing 
+  - Integration Testing 
+  - End to End Testing - E2E Testing
