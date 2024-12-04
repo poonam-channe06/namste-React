@@ -69,45 +69,54 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-
-
-
-### Two types of Export/Import 
+### Two types of Export/Import
 
 ### Default Export/Import
 
-  export default component-name;
-  import component-name from "path";
-
-
+export default component-name;
+import component-name from "path";
 
 ### Named Export/Import
 
- - export const component-name;
- - import { component-name }  from "path";
-
+- export const component-name;
+- import { component-name } from "path";
 
 ### Super(props)
 
     /** A super constructor is a special constructor in the class hierarchy of object-oriented programming languages.
-   *  It refers to the constructor of the parent class that is being extended in the current class.
-   *  The purpose of using the super constructor with a props argument is to inherit the properties of the parent class
-   * and also pass in additional properties as arguments to the child class. */
 
+- It refers to the constructor of the parent class that is being extended in the current class.
+- The purpose of using the super constructor with a props argument is to inherit the properties of the parent class
+- and also pass in additional properties as arguments to the child class. \*/
 
 ### Redux Toolkit
 
-  - install npm i @reduxjs/toolkit and react-redux 
-  - build our own store
-  - connect our store to our app 
-  - we'll create a Cart slice  
-  - dispatch an action
-  - selector
-
-
+- install npm i @reduxjs/toolkit and react-redux
+- build our own store
+- connect our store to our app
+- we'll create a Cart slice
+- dispatch an action
+- selector
 
 ### Types of Testing [ developer]
 
-  - Unit Testing 
-  - Integration Testing 
-  - End to End Testing - E2E Testing
+- Unit Testing
+- Integration Testing
+- End to End Testing - E2E Testing
+
+### Setting up Testing in our app
+
+- Install react testing librabry => npm install -D @testing-library/react
+- Install jest => npm install -D jest
+- Install Babel dependdancies => npm install --save-dev babel-jest @babel/core @babel/preset-env
+- and create the babel.config.js file inside the src
+- Configure babel  add => module.exports = {
+  presets: [['@babel/preset-env', {targets: {node: 'current'}}]],
+  };
+- Configure parcel config file to disable default babel tranpilation
+- jest configuration 
+- jest - npx jest --init
+- Install jsdom library 
+
+
+
