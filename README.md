@@ -93,3 +93,14 @@ Two types of Export/Import
    *  It refers to the constructor of the parent class that is being extended in the current class.
    *  The purpose of using the super constructor with a props argument is to inherit the properties of the parent class
    * and also pass in additional properties as arguments to the child class. */
+
+
+- Redux Toolkit
+
+  - install npm i @reduxjs/toolkit and react-redux 
+  - build our own store
+  - connect our store to our app 
+  - we'll create a Cart slice  
+  - dispatch an action
+  - selector
+

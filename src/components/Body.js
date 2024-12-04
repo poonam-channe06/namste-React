@@ -25,10 +25,12 @@ const Body = () => {
     const json = await data.json();
 
     // console.log(json)
-    console.log("data-->",json?.data)
+    // console.log("data-->",json?.data)
     setListOfRestaurants(
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
+
+    console.log("data-->",json?.data)
     setFilteredRestaurants(
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
