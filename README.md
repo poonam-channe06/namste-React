@@ -117,6 +117,11 @@ import component-name from "path";
 - jest configuration 
 - jest - npx jest --init
 - Install jsdom library 
+- Install @babel/preset-react - to make JSX work in test cases
+- Include @babel/preset-react inside my babel config
 
 
+- @babel/preset-react  is basically heping our testing library to covert our jsx code to HTML so that it can be read properly, thats why we use the *preset*
+
+- Install npm i -D @testing-library/jest-dom  [ this is where - *toBeInTheDocument* is coming from]
 
